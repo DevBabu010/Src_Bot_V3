@@ -80,7 +80,7 @@ def get_random_string(length=7):
 async def process_audio(client, event, url, cookies_env_var=None):
     cookies = None
     if cookies_env_var:
-        cookies = cookies_env_var
+        cookies = os.getenv(cookies_env_var)  # Read actual environment variable value
  
     temp_cookie_path = None
     if cookies:
@@ -318,7 +318,7 @@ async def process_video(client, event, url, cookies_env_var, check_duration_and_
      
     cookies = None
     if cookies_env_var:
-        cookies = cookies_env_var
+        cookies = os.getenv(cookies_env_var)  # Read actual environment variable value
  
      
     random_filename = get_random_string() + ".mp4"
